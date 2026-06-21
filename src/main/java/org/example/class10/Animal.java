@@ -1,0 +1,13 @@
+package org.example.class10;
+
+public abstract class Animal {
+    abstract void makeSound();
+}
+
+class Dog extends Animal{
+
+    @Override
+    void makeSound(){
+        System.out.println("Dog Barks");
+    }
+}
