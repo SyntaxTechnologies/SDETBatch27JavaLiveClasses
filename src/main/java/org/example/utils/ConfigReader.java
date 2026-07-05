@@ -8,10 +8,15 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    public static String readConfigFile(String fileName) throws IOException {
-        FileInputStream fis = new FileInputStream(Constants.CONFIG_PATH);
+    public static String readConfigFile(String key) {
+
+
         Properties p = new Properties();
-        p.load(fis);
-        return p.getProperty(fileName);
+        try(FileInputStream fis = new FileInputStream(Constants.CONFIG_PATH)) {
+            p.load(fis);
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+        return p.getProperty(key);
     }
 }
